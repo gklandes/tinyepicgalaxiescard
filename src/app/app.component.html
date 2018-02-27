@@ -5,26 +5,38 @@
   <tr>
     <td>Level</td>
     <td>{{ card.level }}</td>
+    <td><button type="button" class="btn btn-default" (click)="levelUp('energy')">spend energy</button></td>
+    <td><button type="button" class="btn btn-default" (click)="levelUp('culture')">spend culture</button></td>
   </tr>
   <tr>
     <td>Dice</td>
     <td>0</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>Rockets</td>
     <td>0</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
     <td>Energy</td>
     <td>{{ card.energy }}</td>
+    <td><button type="button" class="btn btn-default" (click)="addEnergy()">add</button></td>
+    <td><button type="button" class="btn btn-default" (click)="useEnergy()">use</button></td>
   </tr>
   <tr>
     <td>Culture</td>
     <td>{{ card.culture }}</td>
+    <td><button type="button" class="btn btn-default" (click)="addCulture()">add</button></td>
+    <td><button type="button" class="btn btn-default" (click)="useCulture()">use</button></td>
   </tr>
   <tr>
     <td>My Planets</td>
     <td>none</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
   </tr>
 </table>
 

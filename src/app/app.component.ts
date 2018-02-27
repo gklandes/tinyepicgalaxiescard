@@ -16,10 +16,28 @@ export class AppComponent {
 
   ngOnInit () {
   }
+
+  addEnergy () { if (this.card.energy < 7) this.card.energy++; }
+
+  addCulture () { if (this.card.culture < 7) this.card.culture++; }
+
+  useEnergy () { if (this.card.energy > 0) this.card.energy--; }
+
+  useCulture () { if (this.card.culture > 0) this.card.culture--; }
+  
+  levelUp (rsc: string) {
+    if (this.card.level < 7) {
+      const cost = this.card.level + 1;
+      if (this.card[rsc] >= cost) {
+        this.card[rsc] = this.card[rsc] - cost;
+        this.card.level++;
+      }
+    }
+  }
 }
 
 class Card {
-  level: Number
-  energy: Number
-  culture: Number
+  level: number
+  energy: number
+  culture: number
 }
