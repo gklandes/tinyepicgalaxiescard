@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  card: Card = {
+    level: 1,
+    energy: 2,
+    culture: 1
+  };
+
+  constructor () {}
+
+  ngOnInit () {
+  }
+}
+
+class Card {
+  level: Number
+  energy: Number
+  culture: Number
 }
