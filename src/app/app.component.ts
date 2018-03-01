@@ -34,11 +34,28 @@ export class AppComponent {
       }
     }
   }
-}
+
+  conquer (planet: Planet) {
+    planet.conquered = true;
+  }
+
+  abandon (planet: Planet) {
+    planet.conquered = false;
+  }
+
+  getPlanets (conquered: boolean): Planet[] {
+    return this.planets.reduce((arr,x) => {
+      if (!!x.conquered === conquered) arr.push(x);
+      return arr;
+    },[]);
+  }
 
   getScore (): number {
     var s = 0;
     s += this.card.getLevelPoints()
+    s += this.planets.reduce((t,x) => {
+      return t + (x.conquered ? x.victory_points : 0);
+    },0);
     return s;
   }
 }

@@ -21,4 +21,5 @@ export class Planet {
   victory_points: number
   colonization: string
   note: string
+  conquered: boolean
 }
