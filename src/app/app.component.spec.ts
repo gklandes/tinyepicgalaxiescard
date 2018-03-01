@@ -1,6 +1,9 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+
 describe('AppComponent', () => {
+  const MockPlanetService = jasmine.createSpyObj('MockPlanetService',['getPlanets']);
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -57,6 +60,11 @@ describe('AppComponent', () => {
     app.levelUp('energy');
     expect(app.card.energy).toBe(0);
     expect(app.card.level).toBe(2);
+  }));
+  it(`should load planets`, async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.planets).toBeDefined();
   }));
   // it('should render title in a h1 tag', async(() => {
   //   const fixture = TestBed.createComponent(AppComponent);
