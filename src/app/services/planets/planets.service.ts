@@ -9,7 +9,7 @@ export class PlanetsService {
   configUrl = 'assets/planets.json';
 
   getPlanets () {
-    return this.http.get(this.configUrl);
+    return this.http.get<Planet[]>(this.configUrl);
   }
 }
 

@@ -3,6 +3,12 @@
 
 <table>
   <tr>
+    <td>Score</td>
+    <td>{{ getScore() }}</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
     <td>Level</td>
     <td>{{ card.level }}</td>
     <td><button type="button" class="btn btn-default" (click)="levelUp('energy')">spend energy</button></td>

@@ -7,13 +7,8 @@ import { PlanetsService, Planet } from './services/planets/planets.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  card: Card = {
-    level: 1,
-    energy: 2,
-    culture: 1,
-    planets: [],
-  };
-  planets: any; // [Planet];
+  card: Card = new Card();
+  planets: Planet[] = [];
 
   constructor (private planetsService: PlanetsService) {}
 
@@ -41,9 +36,27 @@ export class AppComponent {
   }
 }
 
+  getScore (): number {
+    var s = 0;
+    s += this.card.getLevelPoints()
+    return s;
+  }
+}
+
 class Card {
+  score: number
   level: number
   energy: number
   culture: number
-  planets: [Planet] []
+
+  constructor () {
+    this.score = 0;
+    this.level = 1;
+    this.energy = 2;
+    this.culture = 1;
+  }
+
+  getLevelPoints (): number {
+    return [null,0,1,2,3,5,8][this.level];
+  }
 }
