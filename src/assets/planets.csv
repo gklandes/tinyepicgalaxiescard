@@ -1,0 +1,41 @@
+name,track,conquest,resource,victory_points,colonization,note
+Jakks,2,d,c,1,Acquire 1 culture,
+Vici-KS156,2,e,e,1,Acquire 1 energy,
+Drewkaiden,2,e,c,1,Advance + 1 diplomacy,
+Leandra,2,d,e,1,Advance +1 economy,
+Birkomius,2,d,c,1,"If you are followed on this turn, acquire 1 culture per follow",
+Bisschop,2,e,e,1,"If you are followed on this turn, acquire 1 energy per follow",
+Tifnod,2,e,c,1,Regress 1 enemy ship by 1 diplomacy,Can't move below start
+Vizcarra,2,d,e,1,Regress 1 enemy ship by 1 economy,Can't move below start
+MJ-120210,3,d,e,2,Acquire 2 energy,
+Helios,3,d,c,2,Discard an un-occupied planet in the middle and replace it with a new planet,No ships may be on or in orbit
+Mared,3,e,e,2,"If your empire level is the lowest, upgrade your empire for 1 less energy/culture",Not allowed if tied for lowest
+Lureena,3,e,c,2,"Immediately upgrade your empire, you may spend energy and/or culture",
+Zalax,3,d,c,2,Reroll any number of your inactive dice,Only on your turn
+Hoefker,3,e,c,2,Spend 1 energy to acquire 2 culture,
+CLJ-0517,3,e,e,2,Steal 1 culture from another player (only once per turn),
+La-Torres,3,d,c,2,Steal 1 energy from another player (only once per turn),
+Pembertonia-Major,4,e,e,3,Convert any number of culture into energy,
+Omicron Fenzi,4,d,c,3,Convert any number of energy into culture,
+Nagato,4,e,e,3,Spend 1 culture to move 2 of your ships (only once per turn),Can't move one ship twice in a row
+Padraigin-3110,4,e,c,3,Spend 2 culture to advance +2 diplomacy,
+Jorg,4,d,c,3,Spend 2 culture to regress 1 enemy ship by -2,
+Nakagawakozi,4,d,e,3,Spend 2 energy to advance +2 economy,
+Brumbaugh,4,d,e,3,Spend 2 energy to regress 2 enemy ships by -1,
+Umbra-Forum,4,e,c,3,Utilize the action of an un-colonized planet,
+JAC-110912,5,e,c,5,Acquire 2 culture all other players acquire 1 culture,
+Gleam-Zanier,5,d,e,5,Acquire 2 energy all other players acquire 1 energy,
+Maia,5,d,c,5,"Discard 2 inactive dice, acquire 2 energy and 2 culture",Only on your turn
+Andellouxian-6,5,e,c,5,"Displace 1 of your orbiting ships,  acquire energy/culture = ship's level",Your choice of one resource
+Walsfeo,5,e,e,5,Pay 1 culture to a player to utilize one of their colonized planets,
+Sargus-36,5,d,c,5,Pay 1 energy to a player to utilize one of their colonized planets,
+Zavodnick,5,E,e,5,Perform any 1 action; all other players may follow that action for free (only once per turn),
+BSW-10-1,5,d,e,5,"Regress one of your ships -1, then advance another one of your ships +1",Can't advance if you can't regress
+Aughmoore,6,d,e,7,Acquire culture for every ship landed in your galaxy,
+Shouhua,6,d,e,7,Advance a ship +1,
+Nibiru,6,d,c,7,Enemies must pay 2 culture per follow this turn,Only on your turn
+Gort,6,e,e,7,Move one of your ships to another colony track at an equal level,
+Terra-Bettia,6,d,e,7,"Other players advance a ship +1, then you advance a ship +2",
+K-Widow,6,e,c,7,Regress an enemy ship -1,Can't move below start
+Piedes,6,e,e,7,Repeat the action on an already activated die,
+Gyore,6,e,c,7,Set 1 inactive die to a face of your choice,Only on your turn

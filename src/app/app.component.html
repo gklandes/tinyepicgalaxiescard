@@ -34,10 +34,14 @@
   </tr>
   <tr>
     <td>My Planets</td>
-    <td>none</td>
+    <td>{{ myPlanets }}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
 </table>
+<h2>Planets</h2>
+<ul>
+  <li *ngFor="let planet of planets; index as i">{{ planet.name }}</li>
+</ul>
 
 

@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanetsService, Planet } from './services/planets/planets.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   card: Card = {
     level: 1,
     energy: 2,
-    culture: 1
+    culture: 1,
+    planets: [],
   };
+  planets: any; // [Planet];
 
-  constructor () {}
+  constructor (private planetsService: PlanetsService) {}
 
   ngOnInit () {
+    this.planetsService.getPlanets()
+      .subscribe(data => this.planets = data);
   }
 
   addEnergy () { if (this.card.energy < 7) this.card.energy++; }
@@ -40,4 +45,5 @@ class Card {
   level: number
   energy: number
   culture: number
+  planets: [Planet] []
 }
