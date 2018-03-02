@@ -52,7 +52,7 @@ export class AppComponent {
 
   getScore (): number {
     var s = 0;
-    s += this.card.getLevelPoints()
+    s += this.card.getLevelProp('points')
     s += this.planets.reduce((t,x) => {
       return t + (x.conquered ? x.victory_points : 0);
     },0);
@@ -73,7 +73,15 @@ class Card {
     this.culture = 1;
   }
 
-  getLevelPoints (): number {
-    return [null,0,1,2,3,5,8][this.level];
+  getLevelProp (prop: string): number {
+    const p = {points:0,dice:1,rockets:2}
+    return [
+      [0,4,2],
+      [1,5,2],
+      [2,5,3],
+      [3,6,3],
+      [5,6,4],
+      [8,7,4],
+    ][this.level-1][p[prop]];
   }
 }

@@ -9,19 +9,19 @@
   </tr>
   <tr>
     <td>Level</td>
-    <td>{{ card.level }} ({{ card.getLevelPoints() }})</td>
+    <td>{{ card.level }} ({{ card.getLevelProp('points') }})</td>
     <td><button type="button" class="btn btn-default" (click)="levelUp('energy')">spend energy</button></td>
     <td><button type="button" class="btn btn-default" (click)="levelUp('culture')">spend culture</button></td>
   </tr>
   <tr>
     <td>Dice</td>
-    <td>0</td>
+    <td>{{ card.getLevelProp('dice') }}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>Rockets</td>
-    <td>0</td>
+    <td>{{ card.getLevelProp('rockets') }}</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
