@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+$green: #7DFF33;
+$white: #FFF;
+
+@mixin border-std() {
+  border: 1px solid darken($green, 20%);
+  border-radius: 3px;
+}
+
+body {
+  background: black url('https://boardgamegeek.com/image/2366228/tiny-epic-galaxies?size=medium');
+  color: $white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.pull-right {
+  float: right;
+}
+
+.title {
+  color: $green;
+  font-size: 1rem;
+  height: 1.2rem;;
+  line-height: 1rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stats,
+.assets,
+.controls {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: .1rem;
+}
+
+.stat,
+.asset,
+.controls button {
+  flex: 1;
+  margin: .1rem;
+  padding: .3rem;
+  text-align: center;
+}
+
+.stat {
+  @include border-std();
+  font-size: 2em;
+
+  .label {
+    color: $green;
+    font-size: .3em;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.controls {
+  button {
+    @include border-std();
+    background: transparent;
+    color: $white;
+  }
+}
+
+.planet {
+  @include border-std();
+  margin: .3rem;
+  padding: .3rem;
+}

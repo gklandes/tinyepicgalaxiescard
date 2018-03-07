@@ -9,6 +9,7 @@ import { PlanetsService, Planet } from './services/planets/planets.service';
 export class AppComponent {
   card: Card = new Card();
   planets: Planet[] = [];
+  controlSet: string = null;
 
   constructor (private planetsService: PlanetsService) {}
 
@@ -43,9 +44,10 @@ export class AppComponent {
     planet.conquered = false;
   }
 
-  getPlanets (conquered: boolean): Planet[] {
+  getPlanets (): Planet[] { //conquered: boolean
     return this.planets.reduce((arr,x) => {
-      if (!!x.conquered === conquered) arr.push(x);
+      // if (!!x.conquered === conquered) 
+      arr.push(x);
       return arr;
     },[]);
   }
@@ -57,6 +59,10 @@ export class AppComponent {
       return t + (x.conquered ? x.victory_points : 0);
     },0);
     return s;
+  }
+
+  toggleControlSet (set: string): void {
+    this.controlSet = this.controlSet === set ? null : set;
   }
 }
 
