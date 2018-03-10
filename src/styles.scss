@@ -67,8 +67,9 @@ body {
   }
 }
 
-.planet {
+app-planet-card {
   @include border-std();
+  display: block;
   margin: .3rem;
   padding: .3rem;
 }

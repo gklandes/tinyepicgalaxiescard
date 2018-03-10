@@ -36,14 +36,6 @@ export class AppComponent {
     }
   }
 
-  conquer (planet: Planet) {
-    planet.conquered = true;
-  }
-
-  abandon (planet: Planet) {
-    planet.conquered = false;
-  }
-
   getPlanets (): Planet[] { //conquered: boolean
     return this.planets.reduce((arr,x) => {
       // if (!!x.conquered === conquered) 

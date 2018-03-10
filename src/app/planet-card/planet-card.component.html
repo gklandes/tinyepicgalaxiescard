@@ -1,0 +1,7 @@
+<span class="pull-right">
+  <a *ngIf="planet.conquered; else conquerBlock" ng-href="" (click)="abandon(planet)">abandon</a>
+  <ng-template #conquerBlock><a ng-href="" (click)="conquer(planet)">conquer</a></ng-template>      
+</span>
+{{ planet.name }}
+({{ planet.victory_points }})
+<span *ngIf="planet.conquered"><i class="fas fa-star"></i></span>
