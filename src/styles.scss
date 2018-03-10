@@ -1,5 +1,6 @@
 $green: #7DFF33;
 $white: #FFF;
+$bg-card: #EFEFEF;
 
 @mixin border-std() {
   border: 1px solid darken($green, 20%);
@@ -68,7 +69,9 @@ body {
 }
 
 app-planet-card {
-  @include border-std();
+  background: $bg-card;
+  border-radius: 3px;
+  color: #666;
   display: block;
   margin: .3rem;
   padding: .3rem;
