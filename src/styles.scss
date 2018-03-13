@@ -19,16 +19,32 @@ body {
   float: right;
 }
 
-.title {
+.zenith {
   color: $green;
-  font-size: 1rem;
-  height: 1.2rem;;
-  line-height: 1rem;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 0 1rem;
+
+  .title {
+    margin: 0;
+    font-size: inherit;
+    text-transform: uppercase;
+  }
 }
+
+.cols {
+  display: flex;
+  height: 100%;
+
+  .col.card { flex: 1; }
+
+  .col.planets { 
+    flex: 2;
+    height: 100%;
+    overflow: scroll;
+  }
+}
+
 
 .stats,
 .assets,
@@ -38,6 +54,8 @@ body {
   margin: 0;
   padding: .1rem;
 }
+
+.stats { flex-direction: column; }
 
 .stat,
 .asset,

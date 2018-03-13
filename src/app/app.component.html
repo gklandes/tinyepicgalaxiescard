@@ -1,43 +1,59 @@
-<h1 class="title">Tiny Epic Galaxies Card</h1>
-<div class="card">
-  <div class="stats">
-    <div class="stat stat-score">
-      <div class="label">score</div>
-      {{ getScore() }}
-    </div>
-    <div class="stat stat-level" (click)="toggleControlSet('level')">
+<div class="zenith">
+
+  <h1 class="title">Tiny Epic Galaxies Card</h1>
+
+</div>
+<div class="cols">
+
+  <div class="col card">
+    <div class="stats">
+      <div class="stat stat-score">
+        <div class="label">score</div>
+        {{ getScore() }}
+      </div>
+      <div class="stat stat-level" (click)="toggleControlSet('level')">
         <div class="label">level</div>
         {{ card.level }} ({{ card.getLevelProp('points') }})
-    </div>
-    <div class="stat stat-energy" (click)="toggleControlSet('energy')">
+      </div>
+      <div class="stat stat-energy" (click)="toggleControlSet('energy')">
         <div class="label">energy</div>
         {{ card.energy }}
-    </div>
-    <div class="stat stat-culture" (click)="toggleControlSet('culture')">
+      </div>
+      <div class="stat stat-culture">
         <div class="label">culture</div>
         {{ card.culture }}
+      </div>
+      <div class="stat stat-rockets">
+        <div class="label">rockets</div>
+        {{ card.getLevelProp('rockets') }}
+      </div>
+      <div class="stat stat-dice">
+        <div class="label">dice</div>
+        {{ card.getLevelProp('dice') }}
+      </div>
+      <!-- <ul class="assets">
+          <li class="asset asset-rockets" *ngFor="let rocket of [0,1,2,3]; index as i">
+            <span *ngIf="i >= card.getLevelProp('rockets'); else elseBlock"><i class="far fa-rocket"></i></span>
+            <ng-template #elseBlock><i class="fas fa-rocket"></i></ng-template>
+          </li>
+          <li class="asset asset-dice" *ngFor="let die of [0,1,2,3,4,5,6]; index as i">
+            <span *ngIf="i >= card.getLevelProp('dice'); else elseBlock"><i class="far fa-stop"></i></span>
+            <ng-template #elseBlock><i class="fas fa-stop"></i></ng-template>
+          </li>
+      </ul> -->
+    </div>
+    <div class="controls">
+      <button type="button" (click)="addEnergy()" *ngIf="controlSet === 'energy'">Add</button>
+      <button type="button" (click)="useEnergy()" *ngIf="controlSet === 'energy'">Use</button>
+      <button type="button" (click)="addCulture()" *ngIf="controlSet === 'culture'">Add</button>
+      <button type="button" (click)="useCulture()" *ngIf="controlSet === 'culture'">Use</button>
+      <button type="button" (click)="levelUp('energy')" *ngIf="controlSet === 'level'">Use Energy</button>
+      <button type="button" (click)="levelUp('culture')" *ngIf="controlSet === 'level'">Use Culture</button>
     </div>
   </div>
-  <div class="controls">
-    <button type="button" (click)="addEnergy()" *ngIf="controlSet === 'energy'">Add</button>
-    <button type="button" (click)="useEnergy()" *ngIf="controlSet === 'energy'">Use</button>
-    <button type="button" (click)="addCulture()" *ngIf="controlSet === 'culture'">Add</button>
-    <button type="button" (click)="useCulture()" *ngIf="controlSet === 'culture'">Use</button>
-    <button type="button" (click)="levelUp('energy')" *ngIf="controlSet === 'level'">Use Energy</button>
-    <button type="button" (click)="levelUp('culture')" *ngIf="controlSet === 'level'">Use Culture</button>
-  </div>
-  <ul class="assets">
-    <li class="asset asset-rockets" *ngFor="let rocket of [0,1,2,3]; index as i">
-      <span *ngIf="i >= card.getLevelProp('rockets'); else elseBlock"><i class="far fa-rocket"></i></span>
-      <ng-template #elseBlock><i class="fas fa-rocket"></i></ng-template>
-    </li>
-    <li class="asset asset-dice" *ngFor="let die of [0,1,2,3,4,5,6]; index as i">
-        <span *ngIf="i >= card.getLevelProp('dice'); else elseBlock"><i class="far fa-stop"></i></span>
-        <ng-template #elseBlock><i class="fas fa-stop"></i></ng-template>
-      </li>
-  </ul>
-  <div class="planets">
+
+  <div class="col planets">
     <app-planet-card *ngFor="let planet of getPlanets()" [planet]="planet"></app-planet-card>
   </div>
-</div>
 
+</div>
