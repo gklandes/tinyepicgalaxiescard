@@ -38,9 +38,8 @@ export class AppComponent {
     }
   }
 
-  getPlanets (): Planet[] { //conquered: boolean
+  getPlanets (): Planet[] {
     return this.planets.reduce((arr,x) => {
-      // if (!!x.conquered === conquered) 
       arr.push(x);
       return arr;
     },[]);
@@ -50,7 +49,7 @@ export class AppComponent {
     var s = 0;
     s += this.card.getLevelProp('points')
     s += this.planets.reduce((t,x) => {
-      return t + (x.conquered ? x.victory_points : 0);
+      return t + (x.status === 'conquered' ? x.victory_points : 0);
     },0);
     return s;
   }

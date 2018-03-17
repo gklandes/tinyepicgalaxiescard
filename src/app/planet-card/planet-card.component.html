@@ -1,8 +1,76 @@
-<span class="pull-right">
-  <a *ngIf="planet.conquered; else conquerBlock" ng-href="" (click)="abandon(planet)">abandon</a>
-  <ng-template #conquerBlock><a ng-href="" (click)="conquer(planet)">conquer</a></ng-template>      
+<span class="pull-right points">{{ planet.victory_points }}</span>
+<span *ngIf="planet.resource === 'c'; else resBlock">
+  <i class="fas fa-university"></i>
 </span>
-{{ planet.name }}<br>
+<ng-template #resBlock>
+  <i class="fas fa-bolt"></i>
+</ng-template>
+<strong>{{ planet.name }}</strong> {{ planet.status }}
+<span *ngIf="planet.status === 'conquered'">
+  <i class="fas fa-star"></i>
+</span>
+<br>
 <small>{{ planet.colonization }}</small>
-({{ planet.victory_points }})
-<span *ngIf="planet.conquered"><i class="fas fa-star"></i></span>
+<br>
+
+<div class="exploration" *ngIf="planet.status !== 'conquered'">
+  <span class="orbiter explorer" [ngClass]="{'text-muted' : planet.status !== 'orbiting'}">
+    <div class="explorer-label">Orbit progress: {{planet.trackStep}} of {{planet.track}}</div>
+
+    <span class="pull-right" *ngIf="planet.status === 'orbiting'">
+      <button type="button" class="btn-text" (click)="abandon(planet)">
+        <i class="far fa-times"></i>
+      </button>
+    </span>
+
+    <button type="button" class="btn-text" *ngIf="planet.status !== 'orbiting'; else orbitBlock" (click)="orbit(planet)">
+      <i class="fal fa-rocket"></i>
+    </button>
+    <ng-template #orbitBlock>
+      <button type="button" class="btn-text" (click)="abandon(planet)">
+        <i class="fas fa-rocket"></i>
+      </button>
+    </ng-template>
+
+    <span *ngFor="let step of Arr(planet.track).fill(1); index as i">{{i}}
+      <span *ngIf="planet.trackStep > i; else stepBlock">
+        <i class="fas fa-square"></i>
+      </span>
+      <ng-template #stepBlock>
+        <span>
+          <i class="far fa-square"></i>
+        </span>
+      </ng-template>
+    </span>
+
+    <span *ngIf="planet.status === 'orbiting'">
+      <button type="button" class="btn-text" (click)="advance(planet)">
+        <i class="far fa-plus"></i>
+      </button>
+      <button type="button" class="btn-text" (click)="regress(planet)">
+        <i class="far fa-minus"></i>
+      </button>
+    </span>
+
+  </span>
+  <span class="lander explorer" [ngClass]="{'text-muted' : planet.status !== 'landing'}">
+    <div class="explorer-label">Planet Surface</div>
+
+    <span class="pull-right" *ngIf="planet.status === 'landing'">
+      <button type="button" class="btn-text" (click)="abandon(planet)">
+        <i class="far fa-times"></i>
+      </button>
+    </span>
+
+    <span *ngIf="planet.status === 'landing'; else landIconBlock">
+      <button type="button" class="btn-text" (click)="abandon(planet)">
+        <i class="fas fa-rocket"></i>
+      </button>
+    </span>
+    <ng-template #landIconBlock>
+      <button type="button" class="btn-text" (click)="land(planet)">
+        <i class="fal fa-rocket"></i>
+      </button>
+    </ng-template>
+  </span>
+</div>
