@@ -15,7 +15,9 @@ export class AppComponent {
 
   ngOnInit () {
     this.planetsService.getPlanets()
-      .subscribe(data => this.planets = data);
+      .subscribe(data => {
+        this.planets = data.map(x => new Planet(x));
+      });
   }
 
   addEnergy () { if (this.card.energy < 7) this.card.energy++; }
