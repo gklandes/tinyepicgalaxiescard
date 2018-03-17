@@ -1,0 +1,7 @@
+@import 'variables';
+
+@mixin border-std($color) {
+  border: 1px solid $color;
+  border-radius: 3px;
+}
+  
