@@ -5,7 +5,7 @@
 <ng-template #resBlock>
   <i class="fas fa-bolt"></i>
 </ng-template>
-<strong>{{ planet.name }}</strong> {{ planet.status }}
+<strong>{{ planet.name }}</strong>
 <span *ngIf="planet.status === 'conquered'">
   <i class="fas fa-star"></i>
 </span>
@@ -15,7 +15,7 @@
 
 <div class="exploration" *ngIf="planet.status !== 'conquered'">
   <span class="orbiter explorer" [ngClass]="{'text-muted' : planet.status !== 'orbiting'}">
-    <div class="explorer-label">Orbit progress: {{planet.trackStep}} of {{planet.track}}</div>
+    <div class="explorer-label">Orbit</div>
 
     <span class="pull-right" *ngIf="planet.status === 'orbiting'">
       <button type="button" class="btn-text" (click)="abandon(planet)">
