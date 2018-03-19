@@ -9,7 +9,7 @@
     <div class="stats">
       <div class="stat stat-score">
         <div class="label">score</div>
-        {{ getScore() }}
+        {{ card.getScore() }}
       </div>
       <div class="stat stat-level" (click)="toggleControlSet('level')">
         <div class="label">level</div>
@@ -43,17 +43,17 @@
       </ul> -->
     </div>
     <div class="controls">
-      <button type="button" (click)="addEnergy()" *ngIf="controlSet === 'energy'">Add</button>
-      <button type="button" (click)="useEnergy()" *ngIf="controlSet === 'energy'">Use</button>
-      <button type="button" (click)="addCulture()" *ngIf="controlSet === 'culture'">Add</button>
-      <button type="button" (click)="useCulture()" *ngIf="controlSet === 'culture'">Use</button>
-      <button type="button" (click)="levelUp('energy')" *ngIf="controlSet === 'level'">Use Energy</button>
-      <button type="button" (click)="levelUp('culture')" *ngIf="controlSet === 'level'">Use Culture</button>
+      <button type="button" (click)="card.addEnergy()" *ngIf="controlSet === 'energy'">Add</button>
+      <button type="button" (click)="card.useEnergy()" *ngIf="controlSet === 'energy'">Use</button>
+      <button type="button" (click)="card.addCulture()" *ngIf="controlSet === 'culture'">Add</button>
+      <button type="button" (click)="card.useCulture()" *ngIf="controlSet === 'culture'">Use</button>
+      <button type="button" (click)="card.levelUp('energy')" *ngIf="controlSet === 'level'">Use Energy</button>
+      <button type="button" (click)="card.levelUp('culture')" *ngIf="controlSet === 'level'">Use Culture</button>
     </div>
   </div>
 
   <div class="col planets">
-    <app-planet-card *ngFor="let planet of getPlanets()" [planet]="planet"></app-planet-card>
+    <app-planet-card *ngFor="let planet of card.getPlanets()" [planet]="planet"></app-planet-card>
   </div>
 
 </div>

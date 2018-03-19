@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PlanetsService, Planet } from './services/planets/planets.service';
+import { Card } from './card';
+import { PlanetsService } from './services/planets/planets.service';
+import { Planet } from './planet';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,6 @@ import { PlanetsService, Planet } from './services/planets/planets.service';
 })
 export class AppComponent {
   card: Card = new Card();
-  planets: Planet[] = [];
   controlSet: string = null;
 
   constructor (private planetsService: PlanetsService) {}
@@ -16,71 +18,11 @@ export class AppComponent {
   ngOnInit () {
     this.planetsService.getPlanets()
       .subscribe(data => {
-        this.planets = data.map(x => new Planet(x));
-      });
-  }
-
-  addEnergy () { if (this.card.energy < 7) this.card.energy++; }
-
-  addCulture () { if (this.card.culture < 7) this.card.culture++; }
-
-  useEnergy () { if (this.card.energy > 0) this.card.energy--; }
-
-  useCulture () { if (this.card.culture > 0) this.card.culture--; }
-  
-  levelUp (rsc: string) {
-    if (this.card.level < 7) {
-      const cost = this.card.level + 1;
-      if (this.card[rsc] >= cost) {
-        this.card[rsc] = this.card[rsc] - cost;
-        this.card.level++;
-      }
-    }
-  }
-
-  getPlanets (): Planet[] {
-    return this.planets.reduce((arr,x) => {
-      arr.push(x);
-      return arr;
-    },[]);
-  }
-
-  getScore (): number {
-    var s = 0;
-    s += this.card.getLevelProp('points')
-    s += this.planets.reduce((t,x) => {
-      return t + (x.status === 'conquered' ? x.victory_points : 0);
-    },0);
-    return s;
+      this.card.planets = data.map(x => new Planet(x));
+      })
   }
 
   toggleControlSet (set: string): void {
     this.controlSet = this.controlSet === set ? null : set;
-  }
-}
-
-class Card {
-  score: number
-  level: number
-  energy: number
-  culture: number
-
-  constructor () {
-    this.score = 0;
-    this.level = 1;
-    this.energy = 2;
-    this.culture = 1;
-  }
-
-  getLevelProp (prop: string): number {
-    const p = {points:0,dice:1,rockets:2}
-    return [
-      [0,4,2],
-      [1,5,2],
-      [2,5,3],
-      [3,6,3],
-      [5,6,4],
-      [8,7,4],
-    ][this.level-1][p[prop]];
   }
 }
