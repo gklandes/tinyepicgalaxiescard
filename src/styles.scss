@@ -17,10 +17,14 @@ body {
   float: right;
 }
 
-.btn-text {
+.btn-text,
+.btn-text:active,
+.btn-text:focus,
+.btn-text:visited {
   background: transparent;
   border: none;
   font-size: inherit;
+  outline: none;
 }
 
 .text-muted {
@@ -28,5 +32,5 @@ body {
 }
 
 
-// @import 'app/app.component';
-// @import 'app/planet-card/planet-card.component';
+@import 'app/app.component';
+@import 'app/planet-card/planet-card.component';

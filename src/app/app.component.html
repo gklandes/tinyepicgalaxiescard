@@ -1,7 +1,8 @@
 <div class="zenith">
-
+  <span class="pull-right">
+    <button type="button" class="btn-text" (click)="toggleFullScreen()"><i class="far fa-window"></i></button>
+  </span>
   <h1 class="title">Tiny Epic Galaxies Card</h1>
-
 </div>
 <div class="cols">
 
@@ -52,7 +53,7 @@
     </div>
   </div>
 
-  <div class="col planets">
+  <div class="col planets" id="planetsCol">
     <app-planet-card *ngFor="let planet of card.getPlanets()" [planet]="planet"></app-planet-card>
   </div>
 

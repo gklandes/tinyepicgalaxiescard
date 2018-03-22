@@ -3,10 +3,15 @@
 
 app-root {
     .zenith {
-        color: blue; //$green;
+        color: $green;
         font-size: 1.2rem;
         line-height: 2rem;
         padding: .5em 1em;
+
+        button { 
+            color: $gray;
+            font-size: 1.2em;
+        }
 
         .title {
             margin: 0;
