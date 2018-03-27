@@ -31,8 +31,9 @@ export class AppComponent {
 
   setupWindow (): void  {
     var col = document.getElementById('planetsCol');
-    console.log('col',col.offsetHeight, 'window', window.innerHeight);
-    col.style.height = (window.innerHeight - col.offsetHeight).toString();
+    var h = window.innerHeight - col.offsetTop;
+    col.setAttribute('style','height:'+h+'px');
+    col.style.height = h.toString();
   }
 
   toggleFullScreen () {
