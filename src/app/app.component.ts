@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { Card } from './card';
 import { PlanetsService } from './services/planets/planets.service';
 import { Planet } from './planet';
@@ -50,4 +50,19 @@ export class AppComponent {
       cancelFullScreen.call(doc);
     }
   }
+}
+}
+
+@Pipe({
+    name: 'planetGroup',
+    // pure: false
+})
+export class PlanetGroupPipe implements PipeTransform {
+    transform(planets: Planet[], status: string): Planet[] {
+        if (!planets || !status) { return planets; }
+
+        // filter planets array, planets which match and return true will be
+        // kept, false will be filtered out
+        return planets.filter(planet => planet.status === status);
+    }
 }
