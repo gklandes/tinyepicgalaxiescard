@@ -23,10 +23,7 @@ export class AppComponent {
       })
     ;
     this.setupWindow();
-  }
-
-  toggleControlSet (set: string): void {
-    this.controlSet = this.controlSet === set ? null : set;
+    window.addEventListener('resize', this.setupWindow);
   }
 
   setupWindow (): void  {
@@ -50,7 +47,10 @@ export class AppComponent {
       cancelFullScreen.call(doc);
     }
   }
-}
+
+  toggleControlSet (set: string): void {
+    this.controlSet = this.controlSet === set ? null : set;
+  }
 }
 
 @Pipe({
