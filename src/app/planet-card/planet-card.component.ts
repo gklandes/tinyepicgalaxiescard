@@ -41,6 +41,11 @@ export class PlanetCardComponent implements OnInit {
     }
   }
 
+  remove (planet: Planet) {
+    planet.status = 'hidden';
+    planet.trackStep = 0;
+  }
+
   regress (planet: Planet) {
     planet.trackStep = Math.max(0, planet.trackStep - 1);
   }

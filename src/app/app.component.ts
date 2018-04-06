@@ -12,6 +12,7 @@ import { Planet } from './planet';
 export class AppComponent {
   card: Card = new Card();
   controlSet: string = null;
+  showPlanetSelector: Boolean;
 
   constructor (private planetsService: PlanetsService) {}
 

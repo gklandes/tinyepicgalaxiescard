@@ -18,8 +18,7 @@ export class Planet {
     this.colonization = p.colonization;
     this.note = p.note;
 
-    this.status = 'open';
+    this.status = 'hidden';
     this.trackStep = 0;
   }
-
 }

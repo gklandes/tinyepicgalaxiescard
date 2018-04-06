@@ -1,11 +1,13 @@
-<span class="pull-right points">{{ planet.victory_points }}</span>
+<span class="pull-right">
+  <button type="button" (click)="remove(planet)" class="text-muted">remove</button>
+</span>
 <span *ngIf="planet.resource === 'c'; else resBlock">
   <i class="fas fa-university"></i>
 </span>
 <ng-template #resBlock>
   <i class="fas fa-bolt"></i>
 </ng-template>
-<strong>{{ planet.name }}</strong>
+<strong>{{ planet.name }}</strong> <span class="points">{{ planet.victory_points }}</span>
 <span *ngIf="planet.status === 'conquered'">
   <i class="fas fa-star"></i>
 </span>

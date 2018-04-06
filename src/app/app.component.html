@@ -55,9 +55,19 @@
 
   <div class="col planets" id="planetsCol">
     <h2>Open planets</h2>
-    <app-planet-card *ngFor="let planet of ( card.getPlanets() | planetGroup:'hidden')" [planet]="planet"></app-planet-card>
+    <app-planet-card *ngFor="let planet of ( card.getPlanets() | planetGroup:'open')" [planet]="planet"></app-planet-card>
+    <span *ngIf="showPlanetSelector; else planetBlock">
+      <button type="button" (click)="showPlanetSelector = false"><i class="far fa-minus"></i> close planet list</button>
+      <ul>
+        <li *ngFor="let planet of ( card.getPlanets() | planetGroup:'hidden')">
+          <a ngHref="" (click)="planet.status = 'open'">{{ planet.name }}</a>
+        </li>
+      </ul>
+    </span>
+    <ng-template #planetBlock>
+      <button type="button" (click)="showPlanetSelector = true"><i class="far fa-plus"></i> add open planets</button>
+    </ng-template>
     <h2>My planets</h2>
     <app-planet-card *ngFor="let planet of ( card.getPlanets() | planetGroup:'conquered')" [planet]="planet"></app-planet-card>
   </div>
-
 </div>

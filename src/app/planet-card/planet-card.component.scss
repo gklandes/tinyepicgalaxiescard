@@ -9,6 +9,10 @@ app-planet-card {
   margin: .3rem;
   padding: .3rem;
 
+  button {
+    color: $gray;
+  }
+
   strong {
     color: $black;
   }
