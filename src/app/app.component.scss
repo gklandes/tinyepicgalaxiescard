@@ -1,78 +1,94 @@
-@import '../variables';
-@import '../mixins';
+@import '../scss/variables';
+@import '../scss/mixins';
+
+*:focus {
+  outline: none;
+}
 
 app-root {
-    .zenith {
-        color: $green;
-        font-size: 1.2rem;
-        line-height: 2rem;
-        padding: .5em 1em;
+  .zenith {
+    color: $green;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding: .5em 1em;
 
-        button { 
-            color: $gray;
-            font-size: 1.2em;
-        }
-
-        .title {
-            margin: 0;
-            font-size: inherit;
-            text-transform: uppercase;
-        }
+    button { 
+      color: $gray;
+      font-size: 1.2em;
     }
 
-    .cols {
-        display: flex; // height: 100%;
-
-        .col.card {
-            flex: 1;
-        }
-
-        .col.planets {
-            flex: 2;
-            height: 100%;
-            overflow: scroll;
-        }
+    .title {
+      margin: 0;
+      font-size: inherit;
+      text-transform: uppercase;
     }
+  }
 
-    .stats,
-    .assets,
-    .controls {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: .1rem;
+  .cols {
+    padding: 0 .5rem;
+  }
+
+  .stats,
+  .assets,
+  .controls {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: .1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat,
+  .asset,
+  .controls button {
+    flex: 1;
+    margin: .1rem;
+    padding: .3rem;
+    text-align: center;
+  }
+
+  .stat {
+    @include border-std($dkgreen);
+    display: flex;
+    font-size: 2rem;
+    overflow: hidden;
+
+    .stat-label {
+      @include border-std($green);
+      background: $green;
+      color: $black;
+      display: inline-block;
+      flex: 0 0 2.5em;
+      line-height: 1.6em;
+      margin: -.25em;
+      margin-right: .5em;
     }
-
-    .stats {
-        flex-direction: column;
+    .stat-label-text {
+      display: none;
     }
-
-    .stat,
-    .asset,
-    .controls button {
-        flex: 1;
-        margin: .1rem;
-        padding: .3rem;
-        text-align: center;
+    .stat-val,
+    .stat-item {
+      flex: 1 1 auto;
+      text-align: left;
     }
-
-    .stat {
-        @include border-std($dkgreen);
-        font-size: 2em;
-
-        .label {
-            color: $green;
-            font-size: .3em;
-            top: 0;
-            width: 100%;
-        }
+    .stat-item {
+      font-size: .8em;
+      line-height: 1.6em;
+      text-align: center;
     }
-
-    .controls {
-        button {
-            @include border-std($dkgreen);
-            background: transparent;
-            color: $white;
-        }
+    .stat-control {
+      @include border-std($green);
+      background: transparent;
+      color: $green;
+      flex: 0 0 2em;
+      font-size: 1.5rem;
+      line-height: 1.1em;
+      margin: 0 0 0 .25em;
     }
+  }
 }
+
+@import '../scss/landscape';

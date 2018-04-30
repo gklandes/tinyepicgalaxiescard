@@ -9,28 +9,62 @@
   <div class="col card">
     <div class="stats">
       <div class="stat stat-score">
-        <div class="label">score</div>
-        {{ card.getScore() }}
+        <div class="stat-label"><i class="fas fa-trophy"></i>
+          <span class="stat-label-text">score</span>
+        </div>
+        <div class="stat-val">
+            {{ card.getScore() }}
+          </div>
       </div>
       <div class="stat stat-level" (click)="toggleControlSet('level')">
-        <div class="label">level</div>
-        {{ card.level }} ({{ card.getLevelProp('points') }})
-      </div>
+        <div class="stat-label"><i class="fas fa-fast-forward" data-fa-transform="rotate-270"></i>
+          <span class="stat-label-text">level</span>
+        </div>
+        <div class="stat-val">
+          {{ card.level }} ({{ card.getLevelProp('points') }})
+        </div>
+        <button class="stat-control" type="button" (click)="card.levelUp('energy')"><i class="far fa-bolt"></i></button>
+        <button class="stat-control" type="button" (click)="card.levelUp('culture')"><i class="far fa-university"></i></button>
+        </div>
       <div class="stat stat-energy" (click)="toggleControlSet('energy')">
-        <div class="label">energy</div>
-        {{ card.energy }}
+        <div class="stat-label"><i class="fas fa-bolt"></i>
+          <span class="stat-label-text">energy</span>
+        </div>
+        <div class="stat-val">
+          {{ card.energy }}
+        </div>
+        <button class="stat-control" type="button" (click)="card.addEnergy()"><i class="fas fa-plus"></i></button>
+        <button class="stat-control" type="button" (click)="card.useEnergy()"><i class="fas fa-minus"></i></button>
       </div>
       <div class="stat stat-culture" (click)="toggleControlSet('culture')">
-        <div class="label">culture</div>
-        {{ card.culture }}
+        <div class="stat-label"><i class="fas fa-university"></i>
+          <span class="stat-label-text">culture</span>
+        </div>
+        <div class="stat-val">
+          {{ card.culture }}
+        </div>
+        <button class="stat-control" type="button" (click)="card.addCulture()"><i class="fas fa-plus"></i></button>
+        <button class="stat-control" type="button" (click)="card.useCulture()"><i class="fas fa-minus"></i></button>
       </div>
       <div class="stat stat-rockets">
-        <div class="label">rockets</div>
-        {{ card.getLevelProp('rockets') }}
+        <!-- <div class="stat-label"><i class="fas fa-rocket"></i>
+          <span class="stat-label-text">rockets</span>
+        </div> -->
+        <div class="stat-item" *ngFor="let rocket of [0,1,2,3]; index as i">
+          <!-- {{ card.getLevelProp('rockets') }} -->
+            <span *ngIf="i >= card.getLevelProp('rockets'); else elseBlock"><i class="far fa-rocket"></i></span>
+            <ng-template #elseBlock><i class="fas fa-rocket"></i></ng-template>
+        </div>
       </div>
       <div class="stat stat-dice">
-        <div class="label">dice</div>
-        {{ card.getLevelProp('dice') }}
+        <!-- <div class="stat-label"><i class="fas fa-cube"></i>
+          <span class="stat-label-text">dice</span>
+        </div> -->
+        <div class="stat-item" *ngFor="let die of [0,1,2,3,4,5,6]; index as i">
+          <!-- {{ card.getLevelProp('dice') }} -->
+          <span *ngIf="i >= card.getLevelProp('dice'); else elseBlock"><i class="far fa-stop"></i></span>
+          <ng-template #elseBlock><i class="fas fa-stop"></i></ng-template>
+      </div>
       </div>
       <!-- <ul class="assets">
           <li class="asset asset-rockets" *ngFor="let rocket of [0,1,2,3]; index as i">
@@ -43,14 +77,14 @@
           </li>
       </ul> -->
     </div>
-    <div class="controls">
+    <!-- <div class="controls">
       <button type="button" (click)="card.addEnergy()" *ngIf="controlSet === 'energy'">Add</button>
       <button type="button" (click)="card.useEnergy()" *ngIf="controlSet === 'energy'">Use</button>
       <button type="button" (click)="card.addCulture()" *ngIf="controlSet === 'culture'">Add</button>
       <button type="button" (click)="card.useCulture()" *ngIf="controlSet === 'culture'">Use</button>
       <button type="button" (click)="card.levelUp('energy')" *ngIf="controlSet === 'level'">Use Energy</button>
       <button type="button" (click)="card.levelUp('culture')" *ngIf="controlSet === 'level'">Use Culture</button>
-    </div>
+    </div> -->
   </div>
 
   <div class="col planets" id="planetsCol">
@@ -70,4 +104,5 @@
     <h2>My planets</h2>
     <app-planet-card *ngFor="let planet of ( card.getPlanets() | planetGroup:'conquered')" [planet]="planet"></app-planet-card>
   </div>
+
 </div>
