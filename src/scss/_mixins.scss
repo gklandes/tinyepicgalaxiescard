@@ -2,6 +2,6 @@
 
 @mixin border-std($color) {
   border: 1px solid $color;
-  border-radius: 3px;
+  border-radius: 0.5em 0 0.5em 0;
 }
   
